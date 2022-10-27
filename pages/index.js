@@ -1,8 +1,19 @@
 import Head from "next/head";
 import Image from "next/image";
-/* import GridList from "../components/GridList"; */
 import styled from "styled-components";
-import Header from "../components/Header";
+
+const Background = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
 
 export default function Home() {
   return (
@@ -13,35 +24,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Dein Fische Shop</h1>
-      <GridList>
-        <li>Guppy</li>
-        <li>Regenbogenfisch</li>
-      </GridList>
+      <Background>
+        <Image
+          src="https://unsplash.com/photos/9y7y26C-l4Y/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU5MjcwNjYw&force=true&w=2400"
+          alt="Schöne Fische"
+          width={2400}
+          height={1800}
+        />
+      </Background>
+
     </div>
   );
 }
-
-const GridList = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  & a {
-    display: block;
-    border: 1px solid var(--text-secondary);
-    background-color: var(--background-light);
-    color: var(--text-secondary);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    text-decoration: none;
-    height: 100%;
-  }
-  & a:hover {
-    background-color: var(--white);
-  }
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;

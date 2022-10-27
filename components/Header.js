@@ -1,14 +1,21 @@
 import styled from "styled-components";
 import { TbFish } from "react-icons/tb";
+import Link from "next/link";
 
 export default function Header() {
   return (
     <StyledHeader>
       <FishIcon size="4rem" />
       <StyledNavigation>
-        <Anchor>Startseite</Anchor>
-        <Anchor>Produkte</Anchor>
-        <Anchor>Kategorien</Anchor>
+        <Link href="/" passHref legacyBehavior>
+          <Anchor>Startseite</Anchor>
+        </Link>
+        <Link href="/products" passHref legacyBehavior>
+          <Anchor>Produkte</Anchor>
+        </Link>
+        <Link href="/categories" passHref legacyBehavior>
+          <Anchor>Kategorien</Anchor>
+        </Link>
       </StyledNavigation>
     </StyledHeader>
   );
